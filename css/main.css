@@ -1,0 +1,43 @@
+/* fonts */
+@font-face {
+    font-family: 'denseregular';
+    src: url('fonts/dense-regular-webfont.woff2') format('woff2'),
+         url('fonts/dense-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.w70{width: 70%}
+.m0auto{margin: 0 auto}
+.block{display: block}
+body{background: url(../img/back.jpg) repeat-x #f097d1;  font-family: 'denseregular'; }
+#botones_registro{float: left; width: 100%}
+#botones_registro li{margin: 20px 0;}
+#botones_registro li a{padding: 10px 0;width: 100%; background: url(../img/back-boton.jpg) repeat-y top; display: block;color: #fff; text-align: center; text-decoration: none; font-size: 25px}
+header{background:#796f8e; width: 100%; float: left; height: 34px;padding-top: 30px;}
+.atras img{width: 70px;margin-left: 20px;}
+#header_registro{width: 100%;background: url(../img/back-boton.jpg) repeat-y top; display: block; height:70px; margin-top: 80px; float: left; position: relative}
+#header_registro img{margin-top: -20px;position: absolute;left: 50%;margin-left: -35%;}
+#header_registro2{width: 100%;background: url(../img/back-boton.jpg) repeat-y top; display: block; height:70px; margin-top: 80px; float: left; position: relative}
+#header_registro2 img{margin-top: -10px;position: absolute;left: 50%;margin-left: -35%;}
+#formregistro{color: #fff; font-size: 24px; margin-top: 50px}
+#formregistro label{display: block; float: left; width: 140px; text-align: right; margin-right: 10px;text-shadow: 1px 1px #000;}
+#formregistro input{border: 1px solid #854c92; width: 145px; height: 25px; font-size: 18px}
+#formregistro p{margin-bottom: 15px}
+.boton_guardar{float: left; width: 100%;background: url(../img/back-boton.jpg) repeat-y top; display: block;color: #fff; text-align: center; text-decoration: none; font-size: 25px;padding: 10px 0;}
+#menu{width: 100%}
+#menu li p{text-align: center; margin-bottom: 15px}
+#menu li p a img{height: 60px}
+#menu li p a{color: #fff; text-decoration: none; font-size: 25px}
+#menu li p a span{text-align: center;background: url(../img/back-boton.jpg) top center;padding: 10px 0;margin-top: 5px;display: block;}
+@media only screen and (min-width: 961px) and (max-width: 1200px) {
+
+}
+@media only screen and (min-width: 769px) and (max-width: 960px) {
+
+}
+@media only screen and (min-width: 421px) and (max-width: 768px) {
+
+}
+@media only screen and (max-width: 420px) {
+
+}
