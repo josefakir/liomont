@@ -14,9 +14,12 @@
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
   <script src="js/script.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/iniciarsesion.js"></script>
+  <script src="js/logout.js"></script>
 </head>
 <body>
-	<div data-role="page">
+	<div data-role="page" id="index">
 		<div class="container">
 			<div class="twelve column">
 				<p>&nbsp;</p>
@@ -35,6 +38,7 @@
 				<li><a href="registrate.html">Regístrate</a></li>
 			</ul>
 		</div>
+		<a id="triggersesion" href="menu.html" data-transition="flip" style="visibility:hidden">menu</a>
 	</div><!-- /page -->
 </body>
 </html>

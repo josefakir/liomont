@@ -1,3 +1,5 @@
+var urlwordpress = "https://www.dondeir.com/api/";
+var urlws = "http://graphicsandcode.com/liomont/";
 function showLoading( on, params ) {  // on: true|false
     setTimeout( function() {
       if ( on )
@@ -8,10 +10,9 @@ function showLoading( on, params ) {  // on: true|false
       }       
     }, 1);
 }
-var urlwordpress = "https://www.dondeir.com/api/";
-$( document ).on( "pageinit", "#iniciarsesion", function( event ) {
+$( document ).on( "pagecreate", "#iniciarsesion", function( event ) {
 });
-$( document ).on( "pageinit", "#noticias", function( event ) {
+$( document ).on( "pagecreate", "#noticias", function( event ) {
 	showLoading( true ); 
 	$.ajax({
 		url : urlwordpress+'get_recent_posts/?page=1',
@@ -20,27 +21,36 @@ $( document ).on( "pageinit", "#noticias", function( event ) {
 			 $.each(data, function(i, item) {
 			 	titulo = item.title;
 			 	extracto = item.excerpt;
-			 	imagen = item.attachments[0].url;
 			 	id = item.id;
 			 	url = item.url;
-			 	output = '<div class="noticia"><div class="imgnoticia"><a class="mostrarnota" rel="'+id+'"><img src="'+imagen+'" alt="Noticia"></a></div><div class="previonoticia"><h2><a class="mostrarnota" rel="'+id+'">'+titulo+'</a></h2><br><div class="extractonoticia">'+extracto+'</div></div><div class="clear"></div></div>'
+			 	if(item.attachments.length>0){
+			 		imagen = item.attachments[0].url;
+			 		output = '<div class="noticia"><div class="imgnoticia"><a href="single.html?id='+id+'" class="mostrarnota" rel="'+id+'"><img src="'+imagen+'" alt="Noticia"></a></div><div class="previonoticia"><h2><a href="single.html?id='+id+'" class="mostrarnota" rel="'+id+'">'+titulo+'</a></h2><br><div class="extractonoticia">'+extracto+'</div></div><div class="clear"></div></div>'
+			 	}else{
+			 		output = '<div class="noticia"><div class="previonoticia"><h2><a href="single.html?id='+id+'" class="mostrarnota" rel="'+id+'">'+titulo+'</a></h2><br><div class="extractonoticia">'+extracto+'</div></div><div class="clear"></div></div>'
+			 	}
 				$('#contenedornoticias').append(output);
 				showLoading( false ); 
 			});
 		}
 	});
-	$(document).on("click", ".mostrarnota", function() {
-		var id_post = $(this).attr('rel');
-		alert(id_post);
-		$.ajax({
-			url : urlwordpress+'get_post/?id='+id_post,
-			success : function(data){
-				titulo = data.post.title_plain;
-				imagen = data.post.attachments[0].url;
-				contenido = data.post.content;
-			 	$('#contenidonoticia').html('<h1>'+titulo+'</h1><div class="imageninterior"><img class="portadainterior" src="'+imagen+'"/></div><div class="contenidointerior">'+contenido+'</dv>');
-				$('#contenidonoticia').fadeIn('fast');
-			}
-		});
+});
+$( document ).on( "pageshow", "#single", function( event ) {
+	idnota = window.location.search;
+	idnota = idnota.split("=");
+	idnota = idnota[1];
+	$.ajax({
+		url : urlwordpress+'get_post/?id='+idnota,
+		success : function(data){
+			titulo = data.post.title_plain;
+			imagen = data.post.attachments[0].url;
+			contenido = data.post.content;
+			$('#contenidonoticia').html('<h1>'+titulo+'</h1><div class="imageninterior"><img class="portadainterior" src="'+imagen+'"/></div><div class="contenidointerior">'+contenido+'</dv>');
+			showLoading( false ); 
+		},
+		beforeSend : function(){
+			showLoading( true ); 
+		}
 	});
 });
+
