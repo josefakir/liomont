@@ -6,6 +6,14 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'blenda_scriptregular';
+    src: url('fonts/blenda_script-webfont.woff2') format('woff2'),
+         url('fonts/blenda_script-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 .w70{width: 70%}
 .m0auto{margin: 0 auto}
 .block{display: block}
@@ -45,17 +53,20 @@ body{background: url(../img/back.jpg) repeat-x #f097d1;  font-family: 'denseregu
 .extractonoticia{font-family: 'EB Garamond', serif; color: #161515}
 .contenidoescondido{display: none}
 #contenidonoticia h1{color: #08C;font-family: 'EB Garamond', serif; font-size: 24px;padding: 10px;}
-.contenidointerior{font-family: 'EB Garamond', serif; color: #161515;    width: 94%;
-    padding: 3%; line-height: normal}
- .contenidointerior img{width: 100%}
+.contenidointerior{font-family: 'EB Garamond', serif; color: #161515;    width: 94%;padding: 3%; line-height: normal}
+.contenidointerior img{width: 100%}
 .portadainterior{width: 100%}
-.portadainterior img{
-	width: 94%;
-    padding: 3%;
-	margin: 20px 0;
-}
+.portadainterior img{width: 94%;padding: 3%;margin: 20px 0;}
 .mostrarnota{color: #08C; text-decoration: none}
 strong{color: #08C}
+#layermensaje{width: 101%; height: 100%; background: url(../img/pixel.png); position: fixed;top: 0; left: 0; display: none; z-index: 2}
+#mensajes{width: 260px; height: 145px; position: absolute; left: 50%; margin-left: -150px; top: 50%; margin-top: -102px; background: url(../img/backmensaje.png);  font-family: 'blenda_scriptregular'; color: #fff; padding-top: 60px; padding-left: 20px; padding-right: 20px;    font-size: 30px;text-align: center;}
+a#cerrarmensajes {color: #fff;top: 5px;right: 5px;position: absolute;}
+.titulo_nota{font-family: sans-serif;    float: left;display: block;width: 230px;}
+.fecha_nota{font-family: sans-serif;float: left;}.en{float: left;color: #fff;font-size: 24px;margin-left: 10px;margin-top: -4px;margin-bottom: -7px;}
+.bn{float: left;color: #fff;font-size: 24px;margin-left: 10px;margin-top: -4px;margin-bottom: -7px;}
+#footer{    background: #796f8e;}
+#footer a{color: #fff}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }

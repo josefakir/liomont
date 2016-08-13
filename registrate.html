@@ -1,4 +1,4 @@
-	<div data-role="page">
+	<div data-role="page" id="paginaregistro">
 		<div id="header" data-role="header">
 			<h1>&nbsp;</h1>
 			<a class="atras" href="index.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous">Atrás</a>
@@ -9,12 +9,12 @@
 		<div class="clear"></div>
 		<div class="container">
 			<form id="formregistro">
-				<p><label for="nombre">Nombre</label><input type="text" class="input_registro" name="nombre"></p>
-				<p><label for="correo">Correo</label><input type="text" class="input_registro" name="correo"></p>
-				<p><label for="edad">Edad</label><input type="text" class="input_registro" name="edad"></p>
-				<p><label for="pass1">Contraseña</label><input type="password" class="input_registro" name="pass1"></p>
-				<p><label for="pass2">Repetir Contraseña</label><input type="password" class="input_registro" name="pass2"></p>
+				<p><label for="nombre">Nombre</label><input type="text" class="input_registro" name="nombre" id="nombre"></p>
+				<p><label for="correo">Correo</label><input type="text" class="input_registro" name="correo" id="email"></p>
+				<p><label for="edad">Edad</label><input type="text" class="input_registro" name="edad" id="edad"></p>
+				<p><label for="pass1">Contraseña</label><input type="password" class="input_registro" name="pass1" id="pass1"></p>
+				<p><label for="pass2">Repetir Contraseña</label><input type="password" class="input_registro" name="pass2" id="pass2"></p>
 			</form>
 		</div>
-		<a href="menu.html" class="boton_guardar">Guardar</a>
+		<a href="menu.html" class="boton_guardar" id="registrar">Guardar</a>
 	</div><!-- /page -->
