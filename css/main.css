@@ -108,6 +108,50 @@ position: absolute;
 .contenidonota{
     display: none !important;
 }
+.ui-select{
+    background: #fff;
+    width: 96%; padding: 0 2%
+}
+#menumes li{width: 30%; float: left;  margin: 1% 1.6%; position: relative;}
+#menumes li a img{width: 100%}
+.notificacion{width: 13px;height: 10px;background: #dc382f;color: #fff;text-align: center;font-size: 12px;position: absolute;top: -8px;right: -10px;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;padding-top: 4px;opacity: 0.8;}
+.notificacion2{width: 13px;height: 10px;color: #fff;text-align: center;font-size: 12px;position: absolute;top: -8px;right: -10px;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;padding-top: 4px;opacity: 0.8;}
+#contformagregarevento{
+    position: fixed;
+    z-index: 2;
+    background: url(../img/pixelmorado.png);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 140px;
+    display: none
+}
+#formagregarevento{font-family: sans-serif; width: 90%;
+    margin: 0 auto;}
+.ui-btn.ui-input-btn.ui-corner-all.ui-shadow{
+    color:#fff;
+}
+.tituloformulario{color: #854c92; margin-bottom: 10px}
+#guardarevento{background: #796f8e}
+.clndr-table{
+    font-family: sans-serif;
+}
+.tr.header-days {
+    background: #ad65a1;
+    color: #fff;
+}
+table.clndr-table {
+    width: 95%;
+    margin: 0 auto;
+    color: #fff;
+}
+table.clndr-table tr td{
+        padding: 10px;
+}
+tr.header-days {
+    background: #ad64a1;
+}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }
