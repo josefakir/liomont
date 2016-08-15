@@ -152,6 +152,11 @@ table.clndr-table tr td{
 tr.header-days {
     background: #ad64a1;
 }
+.clndr-controls {
+    font-family: sans-serif;
+}
+.month{float: left;}
+.clndr-control-button{float: left;}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }

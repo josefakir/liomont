@@ -20,5 +20,6 @@ $( document ).on( "pageshow", "#calendario", function() {
     	e.preventDefault();
     	$('#contformagregarevento').fadeIn('fast');
     });
+    moment.locale('es-mx');
     $('#widgetcalendario').clndr();
 });
