@@ -142,12 +142,13 @@ position: absolute;
     color: #fff;
 }
 table.clndr-table {
-    width: 95%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 20px auto;
     color: #fff;
 }
 table.clndr-table tr td{
-        padding: 10px;
+    text-align: center;
+    padding: 10px 0
 }
 tr.header-days {
     background: #ad64a1;
@@ -155,8 +156,38 @@ tr.header-days {
 .clndr-controls {
     font-family: sans-serif;
 }
-.month{float: left;}
-.clndr-control-button{float: left;}
+.month{float: left;
+width: 60%;
+    background: #796F8E;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    float: left;}
+.event {
+    background: #dc382f;
+    position: relative;
+}
+.clndr-control-button{
+        width: 20%;
+    background: #796F8E;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    float: left;
+}
+.event::after {
+   content: "";
+    display: inline-block;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    background: blue;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }
