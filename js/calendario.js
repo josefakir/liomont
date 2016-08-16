@@ -1,40 +1,61 @@
 $( document ).on( "pageshow", "#calendario", function() {
 	var value = window.localStorage.getItem("session");
-    var fecha = window.localStorage.getItem("fechacalendario");
-	var url2 = urlws+"?m=obtener_meses_con_evento&a="+$('#selectoranio').val()+"&mes="+$(this).attr('rel')+"&id="+value;
-    $.ajax({
-    	url : url2,
-    	success : function(result){
-    		var meses = JSON.parse( result );
-    		$.each(meses, function() {
-				var mes = this.mes;
-				selector = "#mes"+mes;
-				$(selector).append('<div class="notificacion"></div>');
-			});
-    	}
-    });
-    $('#cerrarformulario').click(function(e){
-    	e.preventDefault();
-    	$('#contformagregarevento').fadeOut('fast');
-    });
-    $('#botonagregarevento').click(function(e){
-    	e.preventDefault();
-    	$('#contformagregarevento').fadeIn('fast');
-    });
     moment.locale('es-mx');
-    $('#widgetcalendario').clndr({
+    var micalendario = $('#widgetcalendario').clndr({
         daysOfTheWeek: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
         clickEvents: {
             click: function (target) {
-                console.log(target);
+                window.localStorage.setItem("fechacalendario", target.date._i );
                 $.mobile.changePage("eventos.html", {
                     transition: "flip",
                     changeHash: true
                 });
             },
+            onMonthChange: function (month) {
+                /* obtener eventos actuales */
+                var mes = this.month.format('MM');
+                var anio = this.month.format('YYYY');
+                var url = urlws+'/?m=obtener_eventos_mes&a='+anio+'&mes='+mes+'&id='+value;
+                
+                $.ajax({
+                    url : url,
+                    success : function(data){
+                        var dias = JSON.parse( data );
+                        var events = [];
+                        $.each(dias, function() {
+                            fecha = anio+'-'+mes+'-'+this.dia;
+                            titulo = this.tipo;
+                            events.push({date : fecha, title: titulo});
+                        });
+                        micalendario.addEvents(events);
+                    }
+                });
+                /* obtener eventos actuales */
+            },
         },
-        events: [
-        { date: '2016-08-15', title: 'Titulo' }
-        ]
+        ready: function () {
+            /* obtener eventos actuales */
+            var mes = this.month.format('MM');
+            var anio = this.month.format('YYYY');
+            var url = urlws+'/?m=obtener_eventos_mes&a='+anio+'&mes='+mes+'&id='+value;
+            
+            $.ajax({
+                url : url,
+                success : function(data){
+                    var dias = JSON.parse( data );
+                    var events = [];
+                    $.each(dias, function() {
+                        console.log(dias);
+                        fecha = anio+'-'+mes+'-'+this.dia;
+                        titulo = this.tipo;
+                        events.push({date : fecha, title: titulo});
+                    });
+                    micalendario.addEvents(events);
+                }
+            });
+            /* obtener eventos actuales */
+        },
     });
+    
+
 });
