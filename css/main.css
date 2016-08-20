@@ -92,6 +92,8 @@ a#cerrarmensajes {color: #fff;top: 5px;right: 5px;position: absolute;}
 .ui-btn.ui-input-btn.ui-corner-all.ui-shadow{color:#fff;}
 .tituloformulario{color: #854c92; margin-bottom: 10px}
 #guardarevento{background: #796f8e}
+#eliminarevento{background: red}
+#eliminarnota{background: red}
 .clndr-table{font-family: sans-serif;}
 .tr.header-days {background: #ad65a1;color: #fff;}
 table.clndr-table {width: 100%;margin: 20px auto;color: #fff;}
@@ -103,18 +105,14 @@ tr.header-days {background: #ad64a1;}
 .clndr-control-button{width: 20%;background: #796F8E;color: #fff;text-align: center;padding: 10px 0;float: left;}
 .event::after {content: "";display: inline-block;cursor: pointer;width: 10px;height: 10px;background-repeat: no-repeat;background: #dc382f;position: absolute;top: 2px;right: 2px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
 #listaeventos{font-family: sans-serif;}
-.icono_evento{
-    float: left;
-    display: block;
-    height: 40px;
-    background: red;
-}
-.texto_evento{
-    float: left;
-    height: 16px;
-    margin-left: 10px;
-    padding: 12px 0;
-}
+a.evento{width: 100%; padding: 0 !important;}
+.evento img{margin: 8px;float: left;}
+.evento span{margin-top: 17px;display: block;}
+.evento{color: #fff;border-color: #fff;}
+a.nota{width: 100%; padding: 0 !important;}
+.nota img{margin: 8px;float: left;}
+.nota span{margin-top: 17px;display: block;}
+.nota{color: #fff;border-color: #fff;}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }

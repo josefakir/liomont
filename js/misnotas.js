@@ -7,7 +7,7 @@ $(document).on("pagecreate", "#misnotas", function() {
 		success: function(result) {
 			$('#contenedordenotas').html('');
 			$.each(result, function() {
-				$('#contenedordenotas').append('<li><div class="titulo_nota">' + this.titulo + '</div><div class="fecha_nota">' + this.fecha + '</div><div class="contenidonota">'+this.contenido+'</div><div class="editar_nota"><a href="#" class="en" rel="' + this.id + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div><div class="editar_nota"><a href="#" class="bn" rel="' + this.id + '"><i class="fa fa-times" aria-hidden="true"></i></a></div></li>').listview('refresh');
+				$('#contenedordenotas').append('<li><a href="#" class="nota" rel="' + this.id + '" reltitulo="'+this.titulo+'" relcontenido="'+this.contenido+'"><img src="img/nota.png"> <span>' + this.titulo +' | '+ this.fecha + '</span></a></li>').listview('refresh');
 			});
 		},
 		beforeSend: function() {
@@ -26,6 +26,8 @@ $(document).on("pagecreate", "#misnotas", function() {
 	/* abrir formulario */
 	$('#botonagregarnota').click(function(e){
 		e.preventDefault();
+		$('#eliminarnota').hide();
+		$('#eliminarnota').parent().hide();
 		$('#editaroguardarnota').val(1);
 		$('#layerformulario').fadeIn('fast');
 	});
@@ -40,8 +42,6 @@ $(document).on("pagecreate", "#misnotas", function() {
 				url: url,
 				success: function(result) {
 					if (result == "success") {
-						$('#mensajes p').html('Nota creada correctamente');
-						$('#layermensaje').fadeIn('fast');
 						$('#layerformulario').fadeOut('fast');
 						/* actualiza list view */
 						url = urlws + '?m=obtener_notas' + '&i=' + value;
@@ -50,7 +50,7 @@ $(document).on("pagecreate", "#misnotas", function() {
 							success: function(result) {
 								$('#contenedordenotas').html('');
 								$.each(result, function() {
-									$('#contenedordenotas').append('<li><div class="titulo_nota">' + this.titulo + '</div><div class="fecha_nota">' + this.fecha + '</div><div class="contenidonota">'+this.contenido+'</div><div class="editar_nota"><a href="#" class="en" rel="' + this.id + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div><div class="editar_nota"><a href="#" class="bn" rel="' + this.id + '"><i class="fa fa-times" aria-hidden="true"></i></a></div></li>').listview('refresh');
+									$('#contenedordenotas').append('<li><a href="#" class="nota" rel="' + this.id + '" reltitulo="'+this.titulo+'" relcontenido="'+this.contenido+'"><img src="img/nota.png"> <span>' + this.titulo +' | '+ this.fecha + '</span></a></li>').listview('refresh');
 								});
 							}
 						});
@@ -73,8 +73,7 @@ $(document).on("pagecreate", "#misnotas", function() {
 				url: url,
 				success: function(result) {
 					if (result == "success") {
-						$('#mensajes p').html('Nota actualizada correctamente');
-						$('#layermensaje').fadeIn('fast');
+						
 						$('#layerformulario').fadeOut('fast');
 						/* actualiza list view */
 						url = urlws + '?m=obtener_notas' + '&i=' + value;
@@ -83,7 +82,7 @@ $(document).on("pagecreate", "#misnotas", function() {
 							success: function(result) {
 								$('#contenedordenotas').html('');
 								$.each(result, function() {
-									$('#contenedordenotas').append('<li><div class="titulo_nota">' + this.titulo + '</div><div class="fecha_nota">' + this.fecha + '</div><div class="contenidonota">'+this.contenido+'</div><div class="editar_nota"><a href="#" class="en" rel="' + this.id + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div><div class="editar_nota"><a href="#" class="bn" rel="' + this.id + '"><i class="fa fa-times" aria-hidden="true"></i></a></div></li>').listview('refresh');
+									$('#contenedordenotas').append('<li><a href="#" class="nota" rel="' + this.id + '" reltitulo="'+this.titulo+'" relcontenido="'+this.contenido+'"><img src="img/nota.png"> <span>' + this.titulo +' | '+ this.fecha + '</span></a></li>').listview('refresh');
 								});
 							}
 						});
@@ -103,7 +102,7 @@ $(document).on("pagecreate", "#misnotas", function() {
 		}
 	});
 	/* borrar notas */
-	$(document).on("click", ".bn", function() { 
+	$(document).on("click", "#eliminarnota", function() { 
 		var url = urlws + '?m=eliminarnota&i=' + $(this).attr('rel');
 		var confirmar = confirm("¿Seguro de eliminar?");
 		if (confirmar) {
@@ -116,7 +115,7 @@ $(document).on("pagecreate", "#misnotas", function() {
 						success: function(result) {
 							$('#contenedordenotas').html('');
 							$.each(result, function() {
-								$('#contenedordenotas').append('<li><div class="titulo_nota">' + this.titulo + '</div><div class="fecha_nota">' + this.fecha + '</div><div class="contenidonota">'+this.contenido+'</div><div class="editar_nota"><a href="#" class="en" rel="' + this.id + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div><div class="editar_nota"><a href="#" class="bn" rel="' + this.id + '"><i class="fa fa-times" aria-hidden="true"></i></a></div></li>').listview('refresh');
+								$('#contenedordenotas').append('<li><a href="#" class="nota" rel="' + this.id + '" reltitulo="'+this.titulo+'" relcontenido="'+this.contenido+'"><img src="img/nota.png"> <span>' + this.titulo +' | '+ this.fecha + '</span></a></li>').listview('refresh');
 							});
 						}
 					});
@@ -130,12 +129,15 @@ $(document).on("pagecreate", "#misnotas", function() {
 			});
 		}
 	});
-	$(document).on("click", ".en", function() { 
+	$(document).on("click", ".nota", function(e) {
+		e.preventDefault(); 
+		$('#eliminarnota').show();
+		$('#eliminarnota').parent().show();
 		$('#editaroguardarnota').val(2);
 		$('#idnota').val($(this).attr('rel'));
 		$('#layerformulario').fadeIn('fast');
-		$('#titulonota').val($(this).parent().parent().find('.titulo_nota').html());
-		$('#contenidonota').val($(this).parent().parent().find('.contenidonota').html());
-
+		$('#titulonota').val($(this).attr('reltitulo'));
+		$('#contenidonota').val($(this).attr('relcontenido'));
+		$('#eliminarnota').attr('rel',$(this).attr('rel'));
 	});
 });

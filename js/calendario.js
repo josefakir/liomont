@@ -45,7 +45,6 @@ $( document ).on( "pageshow", "#calendario", function() {
                     var dias = JSON.parse( data );
                     var events = [];
                     $.each(dias, function() {
-                        console.log(dias);
                         fecha = anio+'-'+mes+'-'+this.dia;
                         titulo = this.tipo;
                         events.push({date : fecha, title: titulo});

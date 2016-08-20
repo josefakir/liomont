@@ -8,7 +8,7 @@ $(document).on("pagecreate", "#eventos", function() {
 			$('#listaeventos').html('');
 			var output = "";
 			$.each(result, function() {
-				output += '<li class="eventomes"><div class="icono_evento"><img src="img/' + this.tipo + '.png"></div><div class="texto_evento">' + this.titulo + '</div><a href="#" class="en" rel="' + this.id + '"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div><div class="editar_nota"><a href="#" class="bn" rel="' + this.id + '"><i class="fa fa-times" aria-hidden="true"></i></a></li>';
+				output += '<li><a href="#" class="evento" rel="' + this.id + '" reltitulo="'+this.titulo+'" reltipo="'+this.tipo+'"><img src="img/' + this.tipo + '.png"> <span>' + this.titulo + '</span></a></li>';
 			});
 			$('#listaeventos').html(output).listview('refresh');;
 		}
@@ -19,6 +19,118 @@ $(document).on("pagecreate", "#eventos", function() {
     });
     $('#botonagregarevento').click(function(e){
     	e.preventDefault();
+        $('#eliminarevento').hide();
+        $('#eliminarevento').parent().hide();
+        $('#esmodificarevento').val('');
+        $('#tituloevento').val('');
+        var myselect = $("select#tipoevento");
+        myselect[0].selectedIndex =0;
+        myselect.selectmenu("refresh");
+        $("#tipoevento option").prop("selected", false);
     	$('#contformagregarevento').fadeIn('fast');
+    });
+    $(document).on("click", ".evento", function(e) { 
+    	e.preventDefault();
+        $('#eliminarevento').show();
+        $('#eliminarevento').parent().show();
+        $('#esmodificarevento').val('1');
+        $('#tituloevento').val($(this).attr('reltitulo'));
+        $("#tipoevento").val($(this).attr('reltipo')).change();
+        $('#ideventomodificar').val($(this).attr('rel'));
+        $('#contformagregarevento').fadeIn('fast');
+    });
+    $('#eliminarevento').click(function(e){
+        e.preventDefault();
+        idevento = $('#ideventomodificar').val();
+        var url = urlws + "?m=eliminarevento&i=" +idevento;
+        var confirmar = confirm("¿Seguro de eliminar?");
+        if(confirmar){
+            $.ajax({
+                url : url,
+                beforeSend : function(){
+
+                },
+                success : function(){
+                    // Actualizar lista
+                        var url = urlws + "?m=obtener_eventos&i=" + value + "&f=" + fechaeventos;
+                        $.ajax({
+                            url: url,
+                            success: function(result) {
+                                $('#listaeventos').html('');
+                                var output = "";
+                                $.each(result, function() {
+                                    output += '<li><a href="#" class="evento" rel="' + this.id + '" reltitulo="'+this.titulo+'" reltipo="'+this.tipo+'"><img src="img/' + this.tipo + '.png"> <span>' + this.titulo + '</span></a></li>';
+                                });
+                                $('#listaeventos').html(output).listview('refresh');;
+                            }
+                        });
+                        $('#contformagregarevento').fadeOut('fast');
+                }
+            });
+        }
+    });
+    $('#guardarevento').click(function(e){
+        e.preventDefault();
+        if($('#esmodificarevento').val()=="1"){
+            //modificar evento
+            idevento = $('#ideventomodificar').val();
+            id_usuario = value;
+            tituloevento = $('#tituloevento').val();
+            tipoevento = $('#tipoevento').val();
+            fechaevento = fechaeventos;
+            url = urlws + "?m=modificarevento&i=" + id_usuario + "&t=" + tituloevento + "&ti=" + tipoevento + "&f=" + fechaevento+"&id_evento="+idevento;
+            $.ajax({
+                url : url,
+                beforeSend : function(){
+
+                },
+                success : function(data){
+                    // Actualizar lista
+                    var url = urlws + "?m=obtener_eventos&i=" + value + "&f=" + fechaeventos;
+                    $.ajax({
+                        url: url,
+                        success: function(result) {
+                            $('#listaeventos').html('');
+                            var output = "";
+                            $.each(result, function() {
+                                output += '<li><a href="#" class="evento" rel="' + this.id + '" reltitulo="'+this.titulo+'" reltipo="'+this.tipo+'"><img src="img/' + this.tipo + '.png"> <span>' + this.titulo + '</span></a></li>';
+                            });
+                            $('#listaeventos').html(output).listview('refresh');;
+                        }
+                    });
+                    $('#contformagregarevento').fadeOut('fast');
+                }
+            });
+        }else{
+            //agregar evento
+            idevento = $('#ideventomodificar').val();
+            id_usuario = value;
+            tituloevento = $('#tituloevento').val();
+            tipoevento = $('#tipoevento').val();
+            fechaevento = fechaeventos;
+            url = urlws + "?m=agregarevento&i=" + id_usuario + "&t=" + tituloevento + "&ti=" + tipoevento + "&f=" + fechaevento;
+            $.ajax({
+                url : url,
+                beforeSend : function(){
+
+                },
+                success : function(data){
+                    // Actualizar lista
+                    var url = urlws + "?m=obtener_eventos&i=" + value + "&f=" + fechaeventos;
+                    $.ajax({
+                        url: url,
+                        success: function(result) {
+                            $('#listaeventos').html('');
+                            var output = "";
+                            $.each(result, function() {
+                                output += '<li><a href="#" class="evento" rel="' + this.id + '" reltitulo="'+this.titulo+'" reltipo="'+this.tipo+'"><img src="img/' + this.tipo + '.png"> <span>' + this.titulo + '</span></a></li>';
+                            });
+                            $('#listaeventos').html(output).listview('refresh');;
+                        }
+                    });
+                    $('#contformagregarevento').fadeOut('fast');
+                }
+            });
+        }
     });
 });

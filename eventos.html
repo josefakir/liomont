@@ -1,7 +1,7 @@
 	<div data-role="page" id="eventos">
 		<div id="header" data-role="header">
 			<h1>&nbsp;</h1>
-			<a class="atras" href="calendario.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous">Atrás</a>
+			<a class="atras" href="calendario.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous" data-transition="flip">Atrás</a>
 		</div>
 		<div class="clear"></div>
 		<ul id="listaeventos" data-role="listview">
@@ -26,7 +26,9 @@
 				<p>&nbsp;</p>
 				<input type="hidden" id="esmodificarevento">
 				<input type="hidden" id="ideventomodificar">
+				<input type="hidden" id="fechaevento">
 				<input type="submit" value="Guardar" id="guardarevento">
+				<input type="submit" value="Eliminar Evento" id="eliminarevento">
 			</form>
 		</div>
 		<div id="footer" data-role="footer" class="footer-docs" data-theme="a" data-position="fixed"><a href="#" data-role="button" data-icon="plus" id="botonagregarevento">Agregar evento nuevo</a></div>
