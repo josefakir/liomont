@@ -1,63 +1,85 @@
 <!DOCTYPE html>
+<!--
+		Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+		Licensed to the Apache Software Foundation (ASF) under one
+		or more contributor license agreements.  See the NOTICE file
+		distributed with this work for additional information
+		regarding copyright ownership.  The ASF licenses this file
+		to you under the Apache License, Version 2.0 (the
+		"License"); you may not use this file except in compliance
+		with the License.  You may obtain a copy of the License at
+
+		http://www.apache.org/licenses/LICENSE-2.0
+
+		Unless required by applicable law or agreed to in writing,
+		software distributed under the License is distributed on an
+		"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+		 KIND, either express or implied.  See the License for the
+		specific language governing permissions and limitations
+		under the License.
+-->
 <html>
+
 <head>
-   <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-  <title>Liomont</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/jqueryMobile.css" />
-  <link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
-  <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css" /> 
-  <link rel="stylesheet" href="css/template.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-  <script src="js/underscore-min.js"></script> 
-  <script src="js/moment-with-locales.min.js"></script>
-  <script src="js/clndr.min.js"></script>
-  <script src="js/index.js"></script>
-  <script src="js/iniciarsesion.js"></script>
-  <script src="js/logout.js"></script>
-  <script src="js/registro.js"></script>
-  <script src="js/noticias.js"></script>
-  <script src="js/single.js"></script>
-  <script src="js/misnotas.js"></script>
-  <script src="js/mimedico.js"></script>
-  <script src="js/calendario.js"></script>
-  <script src="js/eventos.js"></script>
-  <script src="js/script.js"></script>
-  <script type="text/javascript" src="cordova.js"></script>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title>Hello World</title>
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/jqueryMobile.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css" /> 
+	<link rel="stylesheet" href="css/template.css">
+	<link rel="stylesheet" href="css/main.css">  
+	<script src="js/jquery-1.11.1.min.js"></script> 
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/underscore-min.js"></script> 
+		<script src="js/moment-with-locales.min.js"></script>
+		<script src="js/clndr.min.js"></script>
+		<script src="js/iniciarsesion.js"></script>
+		<script src="js/logout.js"></script>
+		<script src="js/registro.js"></script>
+		<script src="js/noticias.js"></script>
+		<script src="js/single.js"></script>
+		<script src="js/misnotas.js"></script>
+		<script src="js/mimedico.js"></script>
+		<script src="js/calendario.js"></script>
+		<script src="js/eventos.js"></script>
+		<script src="js/script.js"></script>
 </head>
+
 <body>
-	<div data-role="page" id="index">
-		<div class="container">
-			<div class="twelve column">
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
-				<img class="w70 m0auto block" src="img/logo-app.png" alt="Liomont">
-				<p>&nbsp;</p>
-				<p>&nbsp;</p>
+			<div data-role="page" id="index">
+			<div class="container">
+				<div class="twelve column">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<img class="w70 m0auto block" src="img/logo-app.png" alt="Liomont">
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+				</div>
 			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="w100">
-			<ul id="botones_registro">
-				<li><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
-				<li><a href="registrate.html">Regístrate</a></li>
-			</ul>
-		</div>
-		<a id="triggersesion" href="menu.html" data-transition="flip" style="visibility:hidden">menu</a>
-	</div><!-- /page -->
-	<div id="layermensaje"><div id="mensajes"><a href="#" id="cerrarmensajes"><i class="fa fa-times" aria-hidden="true"></i></a><p></p></div></div>
-  <script type="text/javascript">
-        app.initialize();
-    </script>
+			<div class="clear"></div>
+			<div class="w100">
+				<ul id="botones_registro">
+					<li><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
+					<li><a href="registrate.html">Regístrate</a></li>
+				</ul>
+			</div>
+			<a id="triggersesion" href="menu.html" data-transition="flip" style="visibility:hidden">menu</a>
+		</div><!-- /page -->
+		<div id="layermensaje"><div id="mensajes"><a href="#" id="cerrarmensajes"><i class="fa fa-times" aria-hidden="true"></i></a><p></p></div></div>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript">
+				app.initialize();
+		</script>
 </body>
+
 </html>
