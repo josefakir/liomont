@@ -1,0 +1,25 @@
+	<div data-role="page" id="misnotas">
+		<div id="header" data-role="header">
+			<h1>&nbsp;</h1>
+			<a class="atras" href="menu.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous" data-transition="flip">Atrás</a>
+		</div>
+		<div class="clear"></div>
+		<ul id="contenedordenotas" data-role="listview">
+		</ul>
+		<div id="footer" data-role="footer" class="footer-docs" data-theme="a" data-position="fixed"><a href="#" data-role="button" data-icon="plus" id="botonagregarnota">Agregar nota nueva</a></div>
+		<div id="layerformulario">
+			<div class="contenedorformulario">
+				<a href="#" id="cerrarformulario"><i class="fa fa-times" aria-hidden="true"></i></a>
+				<p class="tituloformulario">Agregar nota:</p>
+				<form id="agregarnota" action="">
+					<p><input type="hidden" id="editaroguardarnota" value="1"></p>
+					<p><input type="hidden" id="idnota" value=""></p>
+					<p><input type="text" placeholder="Título" id="titulonota"></p>
+					<p><textarea name="contenidonota" id="contenidonota" cols="30" rows="10"></textarea></p>
+					<p><input type="submit" value="Guardar" id="guardarnota"></p>
+					<p><input type="submit" value="Eliminar Nota" id="eliminarnota"></p>
+				</form>
+			</div>
+		</div>
+	</div><!-- /page -->
+	

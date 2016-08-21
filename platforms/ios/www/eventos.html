@@ -1,0 +1,35 @@
+	<div data-role="page" id="eventos">
+		<div id="header" data-role="header">
+			<h1>&nbsp;</h1>
+			<a class="atras" href="calendario.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous" data-transition="flip">Atrás</a>
+		</div>
+		<div class="clear"></div>
+		<ul id="listaeventos" data-role="listview">
+		</ul>
+		<div id="contformagregarevento">
+			<a href="#" id="cerrarformulario" class="ui-link"><i class="fa fa-times" aria-hidden="true"></i></a>
+			<form action="" id="formagregarevento" style="width:80%; margin:20px auto">
+				<p class="tituloformulario">Agregar evento:</p>
+				<p><label for="tituloevento" style="color:#fff">Nombre</label><input type="text" name="tituloevento" id="tituloevento" class="w80" style="background:#fff;"></p>
+				<p>
+					<label for="tipoevento" style="color:#fff">Tipo</label>
+					<select name="tipoevento" id="tipoevento">
+						<option value="Cita">Cita</option>
+						<option value="Intimidad">Intimidad</option>
+						<option value="Mastografia">Mastografía</option>
+						<option value="Menstruacion">Menstruación</option>
+						<option value="Papanicolau">Papanicolau</option>
+						<option value="Otros">Otros</option>
+					</select>
+				</p>
+				<p><label for="">&nbsp;</label><input type="text" name="fechaevento" id="fechaevento" disabled></p>
+				<p>&nbsp;</p>
+				<input type="hidden" id="esmodificarevento">
+				<input type="hidden" id="ideventomodificar">
+				<input type="hidden" id="fechaevento">
+				<input type="submit" value="Guardar" id="guardarevento">
+				<input type="submit" value="Eliminar Evento" id="eliminarevento">
+			</form>
+		</div>
+		<div id="footer" data-role="footer" class="footer-docs" data-theme="a" data-position="fixed"><a href="#" data-role="button" data-icon="plus" id="botonagregarevento">Agregar evento nuevo</a></div>
+	</div><!-- /page -->
