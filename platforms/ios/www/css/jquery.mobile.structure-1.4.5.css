@@ -1400,7 +1400,6 @@ li.ui-block-e {
 	padding: 0;
 }
 .ui-fixed-hidden {
-	position: absolute;
 }
 /* Tap toggle: hide external fixed footer. See issue #6604 */
 .ui-footer-fixed.ui-fixed-hidden {

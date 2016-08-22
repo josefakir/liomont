@@ -10,9 +10,11 @@ $(document).on("pagecreate", "#misnotas", function() {
 				$('#contenedordenotas').append('<li><a href="#" class="nota" rel="' + this.id + '" reltitulo="'+this.titulo+'" relcontenido="'+this.contenido+'"><img src="img/nota.png"> <span>' + this.titulo +' | '+ this.fecha + '</span></a></li>').listview('refresh');
 			});
 		},
-		beforeSend: function() {
+		beforeSend : function(){
+			$('#loading').fadeIn('fast');
 		},
-		complete: function() {
+		complete : function (){
+			$('#loading').fadeOut('fast');
 		}
 	});
 	/* cerrar formulario */
@@ -58,9 +60,11 @@ $(document).on("pagecreate", "#misnotas", function() {
 						$('#layermensaje').fadeIn('fast');
 					}
 				},
-				beforeSend: function() {
+				beforeSend : function(){
+					$('#loading').fadeIn('fast');
 				},
-				complete: function() {
+				complete : function (){
+					$('#loading').fadeOut('fast');
 				}
 			});
 		}else{
@@ -88,9 +92,11 @@ $(document).on("pagecreate", "#misnotas", function() {
 						$('#layermensaje').fadeIn('fast');
 					}
 				},
-				beforeSend: function() {
+				beforeSend : function(){
+					$('#loading').fadeIn('fast');
 				},
-				complete: function() {
+				complete : function (){
+					$('#loading').fadeOut('fast');
 				}
 			});
 		}
@@ -114,9 +120,11 @@ $(document).on("pagecreate", "#misnotas", function() {
 						}
 					});
 				},
-				beforeSend: function() {
+				beforeSend : function(){
+					$('#loading').fadeIn('fast');
 				},
-				complete: function() {
+				complete : function (){
+					$('#loading').fadeOut('fast');
 				}
 			});
 		}

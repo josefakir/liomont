@@ -74,7 +74,7 @@ a#cerrarmensajes {color: #fff;top: 5px;right: 5px;position: absolute;}
 .bn{float: left;color: #fff;font-size: 24px;margin-left: 10px;margin-top: -4px;margin-bottom: -7px;}
 #footer{background: #796f8e;}
 #footer a{color: #fff}
-#layerformulario{background: url(../img/pixelmorado.png); position: fixed; top: 0; left: 0; z-index: 2;    width: 100%;height: 100%; display: none}
+#layerformulario{background: url(../img/pixelmorado.png); position: absolute; top: 0; left: 0; z-index: 2;    width: 100%;height: 100%; display: none}
 .contenedorformulario{width: 90%;margin: 0 auto;margin-top: 140px;}
 .contenedorformulario input[type=text]{background: #fff;border: 1px solid #854c92;}
 .contenedorformulario textarea{border: 1px solid #854c92;height: 150px !important;}
@@ -89,7 +89,7 @@ a#cerrarmensajes {color: #fff;top: 5px;right: 5px;position: absolute;}
 #menumes li a img{width: 100%}
 .notificacion{width: 13px;height: 10px;background: #dc382f;color: #fff;text-align: center;font-size: 12px;position: absolute;top: -8px;right: -10px;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;padding-top: 4px;opacity: 0.8;}
 .notificacion2{width: 13px;height: 10px;color: #fff;text-align: center;font-size: 12px;position: absolute;top: -8px;right: -10px;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;padding-top: 4px;opacity: 0.8;}
-#contformagregarevento{position: fixed;z-index: 2;background: url(../img/pixelmorado.png);width: 100%;height: 100%;top: 0;left: 0;padding-top: 140px;display: none}
+#contformagregarevento{position: absolute;z-index: 2;background: url(../img/pixelmorado.png);width: 100%;height: 100%;top: 0;left: 0;padding-top: 140px;display: none}
 #formagregarevento{font-family: sans-serif; width: 90%;margin: 0 auto;}
 .ui-btn.ui-input-btn.ui-corner-all.ui-shadow{color:#fff;}
 .tituloformulario{color: #854c92; margin-bottom: 10px}
@@ -120,31 +120,21 @@ a.nota{width: 100%; padding: 0 !important;}
 .nota{color: #fff;border-color: #fff;}
 a.atras {margin-top: 20px !important;}
 .today{background:#796f8e}
-input.selectorfecha {
-    width: 100px;
-    float: left;
-    margin: 12px;
-}
-.diaseleccionado{
-    background: #ad64a1
-}
-.selectorhora{
-    width: 30%;
-    float: left;
-}
+input.selectorfecha {width: 100px;float: left;margin: 12px;}
+.diaseleccionado{background: #ad64a1}
+.selectorhora{width: 30%;float: left;}
 #agregaralarma{font-family: sans-serif;}
 .clear{clear: both}
-.switchable-wrapper{
-        float: left;
-    margin-left: 10px;
-}
-#informacionalarma span{    font-family: sans-serif;
-    color: #fff;
-    margin-top: 12px;
-    position: absolute;}
+.switchable-wrapper{float: left;margin-left: 10px;}
+#informacionalarma span{font-family: sans-serif;color: #fff;margin-top: 12px;position: absolute;}
 #redes{position: absolute;right: 5px;top: 20px;}
 #redes li{float: left; margin: 0 5px}
 #redes li a img{width: 32px;}
+#insideloading{color:#fff; font-family: sans-serif;}
+.tac{text-align: center}
+#loading{background: url(../img/pixelmorado.png); position: fixed; width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 9999999; display: none}
+#loading img{width: 60px; }
+#insideloading {width: 100px;text-align: center;height: 90px;position: absolute;top: 50%;margin-top: -45px;left: 50%;margin-left: -50px;}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }

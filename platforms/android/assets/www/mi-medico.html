@@ -1,0 +1,37 @@
+	<div data-role="page" id="mimedico">
+		<div id="header" data-role="header" data-position="fixed">
+			<h1>&nbsp;</h1>
+			<a class="atras" href="menu.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous" data-transition="flip">Atrás</a>
+			<ul id="redes">
+				<li><a href="#" onclick="window.open('http://graphicsandcode.com/liomont/facebook', '_system');"><img src="img/fb.png" alt="Facebook"></a></li>
+				<li><a href="https://twitter.com/VerteRadiante" target="_blank"><img src="img/tw.png" alt="Twitter"></a></li>
+			</ul>
+		</div>
+		<div id="header_registro2" style="margin-top:40px">
+			<img src="img/titulo-mi-medico.png" alt="Regístrate" class="w70 m0auto block" style="margin-top:2px">
+		</div>
+		<div class="clear"></div>
+		<div class="container">
+			<form id="formmedico"> 
+				<p><label for="" class="input_registro" data-role="none">Nombre</label><input type="text" class="inputleft" data-role="none" required name="nombre" id="nombre"></p>
+				<p><label for="" class="input_registro" data-role="none">Correo</label><input type="text" class="inputleft" data-role="none" required name="correo" id="correo"></p>
+				<p><label for="" class="input_registro" data-role="none">Teléfono</label><input type="text" class="inputleft" data-role="none" required name="telefono" id="telefono"></p>
+				<input type="hidden" id="id_usuario" name="id_usuario" id="id_usuario">
+				<input type="hidden" id="modificarmedico">
+				<input type="hidden" id="idmedicoregistrado">
+				<p class="tac"><a href="#" class="enviar" id="botonguardarmedico">Guardar</a></p>
+			</form>
+			<p>&nbsp;</p>
+			<p><label for="cuerpocorreo" style="    font-family: sans-serif;">Escribir Correo</label></p>
+			<form id="formcorreomedico" style="text-align:right">
+				<textarea name="mensaje" id="mensaje" cols="20" rows="10" required></textarea>
+				<input type="hidden" name="nombre_usuario" id="nombre_usuario">
+				<input type="hidden" name="correo_usuario" id="correo_usuario">
+				<input type="hidden" name="nombre_medico" id="nombre_medico">
+				<input type="hidden" name="correo_medico" id="correo_medico">
+				<p>&nbsp;</p>
+				<p class="tar"><a href="#" class="enviar" id="botonenviarcorreo">Enviar</a></p>
+			</form>
+			<a id="botonllamar" href=""><img src="img/llamar.png" alt="Llamar" class="w40 m0auto"></a>
+		</div>
+	</div><!-- /page -->

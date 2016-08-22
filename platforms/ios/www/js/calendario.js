@@ -50,6 +50,12 @@ $( document ).on( "pageshow", "#calendario", function() {
                         events.push({date : fecha, title: titulo});
                     });
                     micalendario.addEvents(events);
+                },
+                beforeSend : function(){
+                    $('#loading').fadeIn('fast');
+                },
+                complete : function (){
+                    $('#loading').fadeOut('fast');
                 }
             });
             /* obtener eventos actuales */

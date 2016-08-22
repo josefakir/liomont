@@ -11,6 +11,10 @@ $( document ).on( "pageshow", "#single", function( event ) {
 			$('#contenidonoticia').html('<h1>'+titulo+'</h1><div class="imageninterior"><img class="portadainterior" src="'+imagen+'"/></div><div class="contenidointerior">'+contenido+'</dv>');
 		},
 		beforeSend : function(){
+			$('#loading').fadeIn('fast');
+		},
+		complete : function (){
+			$('#loading').fadeOut('fast');
 		}
 	});
 });

@@ -5,7 +5,10 @@ $(document).on("pagecreate", "#alarmas", function() {
 	$.ajax({
 		url : url,
 		beforeSend : function(){
-
+			$('#loading').fadeIn('fast');
+		},
+		complete : function (){
+			$('#loading').fadeOut('fast');
 		},
 		success : function(data){
 			var output = "";
@@ -13,7 +16,8 @@ $(document).on("pagecreate", "#alarmas", function() {
 				output += '<li><a href="#" class="alarma" rel="'+this.id+'"><img src="img/Otros.png"> <span>'+this.titulo+' | '+this.fecha+'</span></a></li>';
 			});
 			$('#listaalarmas').html(output).listview('refresh');
-		}
+		},
+
 	});
 	$('#botonagregaralarma').click(function(e){
 		e.preventDefault();
@@ -68,7 +72,10 @@ $(document).on("pagecreate", "#alarmas", function() {
 		$.ajax({
 			url : url,
 			beforeSend : function(){
-
+				$('#loading').fadeIn('fast');
+			},
+			complete : function (){
+				$('#loading').fadeOut('fast');
 			},
 			success : function (data){
 				id_alarma = data;
@@ -118,8 +125,11 @@ $(document).on("pagecreate", "#alarmas", function() {
         	$.ajax({
         		url : url,
         		beforeSend : function(){
-
-        		},
+					$('#loading').fadeIn('fast');
+				},
+				complete : function (){
+					$('#loading').fadeOut('fast');
+				},
         		success : function(data){
         			url = urlws + '?m=obtener_alarmas&i=' + value;
 					$.ajax({

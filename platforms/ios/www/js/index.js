@@ -38,7 +38,7 @@ var app = {
             console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
         };
         window.plugins.OneSignal.init("884346c0-f060-48ac-92c3-c14e8ac535b3",
-            {googleProjectNumber: "703322744261"},
+            {googleProjectNumber: "593173006582"},
             notificationOpenedCallback);
         var notificationOpenedCallback = function(jsonData) {
         $.mobile.changePage("noticias.html", {

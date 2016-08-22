@@ -17,10 +17,12 @@ $(document).on('pagecreate','#paginaregistro', function(){
 	                        $('#layermensaje').fadeIn('fast');
 	                    }
 	                },
-	                beforeSend: function() {
-	                },
-	                complete: function() {
-	                }
+	                beforeSend : function(){
+						$('#loading').fadeIn('fast');
+					},
+					complete : function (){
+						$('#loading').fadeOut('fast');
+					}
 	            })
 	        }
 

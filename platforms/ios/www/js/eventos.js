@@ -4,6 +4,12 @@ $(document).on("pagecreate", "#eventos", function() {
 	var url = urlws + "?m=obtener_eventos&i=" + value + "&f=" + fechaeventos;
 	$.ajax({
 		url: url,
+        beforeSend : function(){
+            $('#loading').fadeIn('fast');
+        },
+        complete : function (){
+            $('#loading').fadeOut('fast');
+        },
 		success: function(result) {
 			$('#listaeventos').html('');
 			var output = "";
@@ -48,7 +54,10 @@ $(document).on("pagecreate", "#eventos", function() {
             $.ajax({
                 url : url,
                 beforeSend : function(){
-
+                    $('#loading').fadeIn('fast');
+                },
+                complete : function (){
+                    $('#loading').fadeOut('fast');
                 },
                 success : function(){
                     // Actualizar lista
@@ -82,7 +91,10 @@ $(document).on("pagecreate", "#eventos", function() {
             $.ajax({
                 url : url,
                 beforeSend : function(){
-
+                    $('#loading').fadeIn('fast');
+                },
+                complete : function (){
+                    $('#loading').fadeOut('fast');
                 },
                 success : function(data){
                     // Actualizar lista
@@ -112,7 +124,10 @@ $(document).on("pagecreate", "#eventos", function() {
             $.ajax({
                 url : url,
                 beforeSend : function(){
-
+                    $('#loading').fadeIn('fast');
+                },
+                complete : function (){
+                    $('#loading').fadeOut('fast');
                 },
                 success : function(data){
                     // Actualizar lista

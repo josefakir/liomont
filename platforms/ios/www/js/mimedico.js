@@ -19,10 +19,12 @@ $(document).on("pagecreate", "#mimedico", function() {
 	        	}
 	            
 	        },
-	        beforeSend: function() {
-	        },
-	        complete: function() {
-	        }
+	        beforeSend : function(){
+				$('#loading').fadeIn('fast');
+			},
+			complete : function (){
+				$('#loading').fadeOut('fast');
+			}
 	    });
 	/* obtener datos del usuario */
 	    $.ajax({
@@ -31,10 +33,12 @@ $(document).on("pagecreate", "#mimedico", function() {
 	            $('#nombre_usuario').val(result2.nombre);
 	            $('#correo_usuario').val(result2.correo);
 	        },
-	        beforeSend: function() {
-	        },
-	        complete: function() {
-	        }
+	        beforeSend : function(){
+				$('#loading').fadeIn('fast');
+			},
+			complete : function (){
+				$('#loading').fadeOut('fast');
+			}
 	    })
 	/* guardar o modificar datos de médico */
 	    $('#formmedico').submit(function(e) {
@@ -61,10 +65,12 @@ $(document).on("pagecreate", "#mimedico", function() {
 	                    $('#mensajeregistro').fadeIn('fast');
 	                }
 	            },
-	            beforeSend: function() {
-	            },
-	            complete: function() {
-	            }
+	            beforeSend : function(){
+					$('#loading').fadeIn('fast');
+				},
+				complete : function (){
+					$('#loading').fadeOut('fast');
+				}
 	        });
 	    });
 /* submit form */
@@ -88,10 +94,12 @@ $(document).on("pagecreate", "#mimedico", function() {
 	                    $('#layermensaje').fadeIn('fast');
 	                }
 	            },
-	            beforeSend: function() {
-	            },
-	            complete: function() {
-	            }
+	            beforeSend : function(){
+					$('#loading').fadeIn('fast');
+				},
+				complete : function (){
+					$('#loading').fadeOut('fast');
+				}
 	        });
 	    });
 	   $('#botonenviarcorreo').click(function(e){
