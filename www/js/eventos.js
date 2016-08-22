@@ -10,7 +10,7 @@ $(document).on("pagecreate", "#eventos", function() {
 			$.each(result, function() {
 				output += '<li><a href="#" class="evento" rel="' + this.id + '" reltitulo="'+this.titulo+'" reltipo="'+this.tipo+'"><img src="img/' + this.tipo + '.png"> <span>' + this.titulo + '</span></a></li>';
 			});
-			$('#listaeventos').html(output).listview('refresh');;
+			$('#listaeventos').html(output).listview('refresh');
 		}
 	})
 	$('#cerrarformulario').click(function(e){

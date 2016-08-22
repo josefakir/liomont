@@ -63,6 +63,9 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
         }
     },
     "dependent_plugins": {
@@ -70,6 +73,9 @@
             "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
+        },
+        "cordova-plugin-app-event": {
             "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
         }
     }

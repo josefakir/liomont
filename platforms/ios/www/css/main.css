@@ -81,6 +81,7 @@ a#cerrarmensajes {color: #fff;top: 5px;right: 5px;position: absolute;}
 .tituloformulario{font-family: sans-serif; font-size: 24px;text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);}
 .contenedorformulario input[type=submit]{background: #854c92;color: #fff!important;border: 1px solid;}
 #cerrarformulario{color: #fff;position: absolute;right: 5px;font-size: 28px;}
+#cerrarformulario2{color: #fff;position: absolute;right: 5px;font-size: 28px;}
 .contenidonota{display: none !important;}
 .ui-select{background: #fff;width: 96%; padding: 0 2%}
 #menumes li{width: 30%; float: left;  margin: 1% 1.6%; position: relative;}
@@ -94,6 +95,7 @@ a#cerrarmensajes {color: #fff;top: 5px;right: 5px;position: absolute;}
 #guardarevento{background: #796f8e}
 #eliminarevento{background: red}
 #eliminarnota{background: red}
+#eliminaralarma{background: red}
 .clndr-table{font-family: sans-serif;}
 .tr.header-days {background: #ad65a1;color: #fff;}
 table.clndr-table {width: 100%;margin: 20px auto;color: #fff;}
@@ -105,17 +107,40 @@ tr.header-days {background: #ad64a1;}
 .clndr-control-button{width: 20%;background: #796F8E;color: #fff;text-align: center;padding: 10px 0;float: left;}
 .event::after {content: "";display: inline-block;cursor: pointer;width: 10px;height: 10px;background-repeat: no-repeat;background: #dc382f;position: absolute;top: 2px;right: 2px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;}
 #listaeventos{font-family: sans-serif;}
-a.evento{width: 100%; padding: 0 !important;}
+a.evento{width: 100%; padding: 0 !important;color: #fff;border-color: #fff;}
 .evento img{margin: 8px;float: left;}
 .evento span{margin-top: 17px;display: block;}
-.evento{color: #fff;border-color: #fff;}
+a.alarma{width: 100%; padding: 0 !important;color: #fff;border-color: #fff;}
+.alarma img{margin: 8px;float: left;}
+.alarma span{margin-top: 17px;display: block;}
 a.nota{width: 100%; padding: 0 !important;}
 .nota img{margin: 8px;float: left;}
 .nota span{margin-top: 17px;display: block;}
 .nota{color: #fff;border-color: #fff;}
-a.atras {
-    margin-top: 20px !important;
+a.atras {margin-top: 20px !important;}
+.today{background:#796f8e}
+input.selectorfecha {
+    width: 100px;
+    float: left;
+    margin: 12px;
 }
+.diaseleccionado{
+    background: #ad64a1
+}
+.selectorhora{
+    width: 30%;
+    float: left;
+}
+#agregaralarma{font-family: sans-serif;}
+.clear{clear: both}
+.switchable-wrapper{
+        float: left;
+    margin-left: 10px;
+}
+#informacionalarma span{    font-family: sans-serif;
+    color: #fff;
+    margin-top: 12px;
+    position: absolute;}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }

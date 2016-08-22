@@ -2,64 +2,329 @@
 <html>
 
 <head>
-		<meta charset="utf-8" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="msapplication-tap-highlight" content="no" />
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<title>Mi Calendario Liomont</title>
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+	<title>Mi Calendario Liomont</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/jqueryMobile.css" />
 	<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css" /> 
 	<link rel="stylesheet" href="css/template.css">
 	<link rel="stylesheet" href="css/main.css">  
+	<link rel="stylesheet" href="css/timedropper.min.css">
+	<link rel="stylesheet" href="js/switchable.css">
 	<script src="js/jquery-1.11.1.min.js"></script> 
-		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<script src="js/underscore-min.js"></script> 
-		<script src="js/moment-with-locales.min.js"></script>
-		<script src="js/clndr.min.js"></script>
-		<script src="js/iniciarsesion.js"></script>
-		<script src="js/logout.js"></script>
-		<script src="js/registro.js"></script>
-		<script src="js/noticias.js"></script>
-		<script src="js/single.js"></script>
-		<script src="js/misnotas.js"></script>
-		<script src="js/mimedico.js"></script>
-		<script src="js/calendario.js"></script>
-		<script src="js/eventos.js"></script>
-		<script src="js/script.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/underscore-min.js"></script> 
+	<script src="js/moment-with-locales.min.js"></script>
+	<script src="js/clndr.min.js"></script>
+	<script src="js/iniciarsesion.js"></script>
+	<script src="js/logout.js"></script>
+	<script src="js/registro.js"></script>
+	<script src="js/noticias.js"></script>
+	<script src="js/single.js"></script>
+	<script src="js/misnotas.js"></script>
+	<script src="js/mimedico.js"></script>
+	<script src="js/calendario.js"></script>
+	<script src="js/eventos.js"></script>
+	<script src="js/alarmas.js"></script>
+	<script src="js/timedropper.min.js"></script>
+	<script src="js/switchable.min.js"></script>
+	<script src="js/script.js"></script>
 </head>
-
 <body>
-			<div data-role="page" id="index">
-			<div class="container">
-				<div class="twelve column">
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<img class="w70 m0auto block" src="img/logo-app.png" alt="Liomont">
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-				</div>
+	<div data-role="page" id="index">
+		<div class="container">
+			<div class="twelve column">
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<img class="w70 m0auto block" src="img/logo-app.png" alt="Liomont">
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
 			</div>
-			<div class="clear"></div>
-			<div class="w100">
-				<ul id="botones_registro">
-					<li><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
-					<li><a href="registrate.html">Regístrate</a></li>
-				</ul>
-			</div>
-			<a id="triggersesion" href="menu.html" data-transition="flip" style="visibility:hidden">menu</a>
-		</div><!-- /page -->
-		<div id="layermensaje"><div id="mensajes"><a href="#" id="cerrarmensajes"><i class="fa fa-times" aria-hidden="true"></i></a><p></p></div></div>
-		<script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="js/index.js"></script>
-		<script type="text/javascript">
-				app.initialize();
-		</script>
+		</div>
+		<div class="clear"></div>
+		<div class="w100">
+			<ul id="botones_registro">
+				<li><a href="iniciar-sesion.html">Iniciar Sesión</a></li>
+				<li><a href="registrate.html">Regístrate</a></li>
+			</ul>
+		</div>
+		<a id="triggersesion" href="menu.html" data-transition="flip" style="visibility:hidden">menu</a>
+	</div><!-- /page -->
+	<div id="layermensaje"><div id="mensajes"><a href="#" id="cerrarmensajes"><i class="fa fa-times" aria-hidden="true"></i></a><p></p></div></div>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+            var id = 1, dialog;
+
+            callback = function () {
+                cordova.plugins.notification.local.getIds(function (ids) {
+                    //showToast('IDs: ' + ids.join(' ,'));
+                });
+            };
+
+            showToast = function (text) {
+                setTimeout(function () {
+                    if (device.platform != 'windows') {
+                        window.plugins.toast.showShortBottom(text);
+                    } else {
+                        showDialog(text);
+                    }
+                }, 100);
+            };
+
+            showDialog = function (text) {
+                if (dialog) {
+                    dialog.content = text;
+                    return;
+                }
+
+                dialog = new Windows.UI.Popups.MessageDialog(text);
+
+                dialog.showAsync().done(function () {
+                    dialog = null;
+                });
+            };
+
+        </script>
+
+        <!-- permission -->
+        <script type="text/javascript">
+            hasPermission = function () {
+                cordova.plugins.notification.local.hasPermission(function (granted) {
+                    //showToast(granted ? 'Yes' : 'No');
+                });
+            };
+
+            registerPermission = function () {
+                cordova.plugins.notification.local.registerPermission(function (granted) {
+                    //showToast(granted ? 'Yes' : 'No');
+                });
+            };
+        </script>
+
+        <!-- schedule -->
+        <script type="text/javascript">
+            agendarAlarma = function(id,fecha,titulo,repetir){
+                var sound2 = device.platform == 'Android' ? 'file://sound2.mp3' : 'file://beep.caf';
+                if(repetir=="1"){
+                    cordova.plugins.notification.local.schedule({
+                        id: id,
+                        text: titulo,
+                        sound: sound2,
+                        every: 'day',
+                        at: fecha
+                    });
+                }else{
+                    cordova.plugins.notification.local.schedule({
+                        id: id,
+                        text: titulo,
+                        sound: sound2,
+                        at: fecha
+                    });
+                }
+            };
+            cancelarAlarma = function (id) {
+                cordova.plugins.notification.local.cancel(id, callback);
+            };
+            scheduleMinutely = function () {
+                var sound = device.platform == 'Android' ? 'file://sound2.mp3' : 'file://beep.caf';
+
+                cordova.plugins.notification.local.schedule({
+                    id: 1,
+                    text: 'Scheduled every minute',
+                    every: 'minute',
+                    sound: sound
+                });
+            };
+        </script>
+
+        <!-- update -->
+        <script type="text/javascript">
+            update = function () {
+                cordova.plugins.notification.local.update({
+                    id: 1,
+                    text: 'Updated Message 1',
+                    json: { updated: true }
+                });
+            };
+
+            updateInterval = function () {
+                cordova.plugins.notification.local.update({
+                    id: 1,
+                    text: 'Updated Message 1',
+                    every: 'minute'
+                });
+            };
+        </script>
+
+        <!-- clear -->
+        <script type="text/javascript">
+            clearSingle = function () {
+                cordova.plugins.notification.local.clear(1, callback);
+            };
+
+            clearMultiple = function () {
+                cordova.plugins.notification.local.clear([2, 3], callback);
+            };
+
+            clearAll = function () {
+                cordova.plugins.notification.local.clearAll(callback);
+            };
+        </script>
+
+        <!-- cancel -->
+        <script type="text/javascript">
+            cancel = function () {
+                cordova.plugins.notification.local.cancel(1, callback);
+            };
+
+            cancelMultiple = function () {
+                cordova.plugins.notification.local.cancel([2, 3], callback);
+            };
+
+            cancelAll = function () {
+                cordova.plugins.notification.local.cancelAll(callback);
+            };
+        </script>
+
+        <!-- presence -->
+        <script type="text/javascript">
+            isPresent = function () {
+                cordova.plugins.notification.local.isPresent(id, function (present) {
+                    //showToast(present ? 'Yes' : 'No');
+                });
+            };
+
+            isScheduled = function () {
+                cordova.plugins.notification.local.isScheduled(id, function (scheduled) {
+                    //showToast(scheduled ? 'Yes' : 'No');
+                });
+            };
+
+            isTriggered = function () {
+                cordova.plugins.notification.local.isTriggered(id, function (triggered) {
+                    //showToast(triggered ? 'Yes' : 'No');
+                });
+            };
+        </script>
+
+        <!-- IDs -->
+        <script type="text/javascript">
+            var callbackIds = function (ids) {
+                console.log(ids);
+                //showToast(ids.length === 0 ? '- none -' : ids.join(' ,'));
+            };
+
+            getIds = function () {
+                cordova.plugins.notification.local.getIds(callbackIds);
+            };
+
+            getScheduledIds = function () {
+                cordova.plugins.notification.local.getScheduledIds(callbackIds);
+            };
+
+            getTriggeredIds = function () {
+                cordova.plugins.notification.local.getTriggeredIds(callbackIds);
+            };
+        </script>
+
+        <!-- notifications -->
+        <script type="text/javascript">
+            var callbackOpts = function (notifications) {
+                console.log(notifications);
+                //showToast(notifications.length === 0 ? '- none -' : notifications.join(' ,'));
+            };
+
+            var callbackSingleOpts = function (notification) {
+                console.log(notification);
+                //showToast(notification.toString());
+            };
+
+            get = function () {
+                cordova.plugins.notification.local.get(1, callbackSingleOpts);
+            };
+
+            getMultiple = function () {
+                cordova.plugins.notification.local.get([1, 2], callbackOpts);
+            };
+
+            getAll = function () {
+                cordova.plugins.notification.local.getAll(callbackOpts);
+            };
+
+            getScheduled = function () {
+                cordova.plugins.notification.local.getScheduled(callbackOpts);
+            };
+
+            getTriggered = function () {
+                cordova.plugins.notification.local.getTriggered(callbackOpts);
+            };
+        </script>
+
+        <!-- defaults -->
+        <script type="text/javascript">
+            setDefaultTitle = function () {
+                cordova.plugins.notification.local.setDefaults({
+                    title: 'New Default Title'
+                });
+            };
+        </script>
+
+        <!-- callbacks -->
+        <script type="text/javascript">
+            document.addEventListener('deviceready', function () {
+
+                cordova.plugins.notification.local.on('schedule', function (notification) {
+                    console.log('onschedule', arguments);
+                     //showToast('scheduled: ' + notification.id);
+                });
+
+                cordova.plugins.notification.local.on('update', function (notification) {
+                    console.log('onupdate', arguments);
+                     //showToast('updated: ' + notification.id);
+                });
+
+                cordova.plugins.notification.local.on('trigger', function (notification) {
+                    console.log('ontrigger', arguments);
+                    //showToast('triggered: ' + notification.id);
+                });
+
+                cordova.plugins.notification.local.on('click', function (notification) {
+                    console.log('onclick', arguments);
+                    //showToast('clicked: ' + notification.id);
+                });
+
+                cordova.plugins.notification.local.on('cancel', function (notification) {
+                    console.log('oncancel', arguments);
+                     //showToast('canceled: ' + notification.id);
+                });
+
+                cordova.plugins.notification.local.on('clear', function (notification) {
+                    console.log('onclear', arguments);
+                    //showToast('cleared: ' + notification.id);
+                });
+
+                cordova.plugins.notification.local.on('cancelall', function () {
+                    console.log('oncancelall', arguments);
+                     //showToast('canceled all');
+                });
+
+                cordova.plugins.notification.local.on('clearall', function () {
+                    console.log('onclearall', arguments);
+                     //showToast('cleared all');
+                });
+            }, false);
+        </script>
+	<script type="text/javascript">
+	app.initialize();
+	</script>
 </body>
 
 </html>

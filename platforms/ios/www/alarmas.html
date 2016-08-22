@@ -1,14 +1,44 @@
-	<div data-role="page">
+	<div data-role="page" id="alarmas">
 		<div id="header" data-role="header" data-position="fixed">
 			<h1>&nbsp;</h1>
 			<a class="atras" href="menu.html" data-icon="carat-l" class="ui-btn-left" data-back-btn-text="previous" data-transition="flip">Atrás</a>
 		</div>
 		<div class="clear"></div>
-		<ul id="notas" data-role="listview">
-			<li><a href="">Nota 1</a></li>
-			<li><a href="">Nota 2</a></li>
-			<li><a href="">Nota 3</a></li>
-			<li><a href="">Nota 4</a></li>
-			<li><a href="">Nota 5</a></li>
+		<ul id="listaalarmas" data-role="listview">
+			
 		</ul>
+		<div id="footer" data-role="footer" class="footer-docs" data-theme="a" data-position="fixed"><a href="#" data-role="button" data-icon="plus" id="botonagregaralarma">Agregar alarma nueva</a></div>
+		<div id="layerformulario">
+			<div class="contenedorformulario" style="margin-top:81px">
+				<div id="formagregaralarma">
+					<a href="#" id="cerrarformulario"><i class="fa fa-times" aria-hidden="true"></i></a>
+					<p class="tituloformulario">Agregar alarma:</p>
+					<form id="agregaralarma" action="">
+						<p><input type="hidden" id="editaroguardaralarma" value="1"></p>
+						<p><input type="hidden" id="idalarma" value=""></p>
+						<p><input type="text" placeholder="Título" id="tituloalarma"></p>
+						<p><div id="widgetcalendarioalarmas"></div></p>
+						<p style="display:none"><input type="text" id="dia" class="selectorfecha" placeholder="Día" readonly><input type="text" id="mes" class="selectorfecha"  placeholder="Mes" readonly><input type="text" id="anio" class="selectorfecha"  placeholder="Año" readonly></p>
+						<p><input type="text" name="" id="relojalarma"></p>
+						<p><label for="Repetir" style="display: block;float: left;">Repetir diario:</label><input type="checkbox" id="repetir"></p>
+						<div class="clear"></div>
+						<p><input type="submit" value="Guardar" id="guardaralarma"></p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+					</form>
+				</div>
+				<div id="formeliminaralarma">
+					<p class="tituloformulario">Eliminar alarma:</p>
+					<a href="#" id="cerrarformulario2"><i class="fa fa-times" aria-hidden="true"></i></a>
+					<p id="informacionalarma"></p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p><input type="submit" value="Eliminar Alarma" id="eliminaralarma"></p>
+				</div>
+			</div>
+		</div>
 	</div><!-- /page -->
