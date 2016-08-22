@@ -34,9 +34,22 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        var notificationOpenedCallback = function(jsonData) {
+            console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
+        };
+        window.plugins.OneSignal.init("884346c0-f060-48ac-92c3-c14e8ac535b3",
+            {googleProjectNumber: "703322744261"},
+            notificationOpenedCallback);
+        var notificationOpenedCallback = function(jsonData) {
+        $.mobile.changePage("noticias.html", {
+            transition: "flip",
+            changeHash: false
+        });
+        }
+        window.plugins.OneSignal.enableInAppAlertNotification(true);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        alert('Received Event: ' + id);
+        //alert('Received Event: ' + id);
     }
 };

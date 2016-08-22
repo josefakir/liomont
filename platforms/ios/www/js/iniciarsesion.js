@@ -5,7 +5,6 @@ $(document).on("pagecreate", "#iniciarsesion", function() {
 	        $.ajax({
 	            url: url,
 	            success: function(result) {
-	            	alert(result);
 	                if (result != "") {
 	                    //login correcto
 	                    window.localStorage.setItem("session", result);
@@ -19,10 +18,8 @@ $(document).on("pagecreate", "#iniciarsesion", function() {
 	                }
 	            },
 	            beforeSend: function() {
-	                $.mobile.loading('show');
 	            },
 	            complete: function() {
-	                $.mobile.loading('hide');
 	            }
 	        });
 		});

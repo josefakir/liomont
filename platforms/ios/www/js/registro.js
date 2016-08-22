@@ -18,10 +18,8 @@ $(document).on('pagecreate','#paginaregistro', function(){
 	                    }
 	                },
 	                beforeSend: function() {
-	                    showLoading( true ); 
 	                },
 	                complete: function() {
-	                    showLoading( false ); 
 	                }
 	            })
 	        }

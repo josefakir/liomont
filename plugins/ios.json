@@ -66,6 +66,9 @@
         },
         "de.appplant.cordova.plugin.local-notification": {
             "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
+        },
+        "onesignal-cordova-plugin": {
+            "PACKAGE_NAME": "com.graphicsandcode.micalendarioliomont"
         }
     },
     "dependent_plugins": {

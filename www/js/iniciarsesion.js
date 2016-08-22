@@ -18,10 +18,8 @@ $(document).on("pagecreate", "#iniciarsesion", function() {
 	                }
 	            },
 	            beforeSend: function() {
-	                $.mobile.loading('show');
 	            },
 	            complete: function() {
-	                $.mobile.loading('hide');
 	            }
 	        });
 		});

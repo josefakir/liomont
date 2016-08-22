@@ -20,10 +20,8 @@ $(document).on("pagecreate", "#mimedico", function() {
 	            
 	        },
 	        beforeSend: function() {
-	           showLoading( true );
 	        },
 	        complete: function() {
-	            showLoading( false );
 	        }
 	    });
 	/* obtener datos del usuario */
@@ -34,10 +32,8 @@ $(document).on("pagecreate", "#mimedico", function() {
 	            $('#correo_usuario').val(result2.correo);
 	        },
 	        beforeSend: function() {
-	            showLoading( true );
 	        },
 	        complete: function() {
-	            showLoading( false );
 	        }
 	    })
 	/* guardar o modificar datos de médico */
@@ -66,10 +62,8 @@ $(document).on("pagecreate", "#mimedico", function() {
 	                }
 	            },
 	            beforeSend: function() {
-	                showLoading( true );
 	            },
 	            complete: function() {
-	                showLoading( false );
 	            }
 	        });
 	    });
@@ -95,10 +89,8 @@ $(document).on("pagecreate", "#mimedico", function() {
 	                }
 	            },
 	            beforeSend: function() {
-	                //$.mobile.loading('show');
 	            },
 	            complete: function() {
-	                //$.mobile.loading('hide');
 	            }
 	        });
 	    });

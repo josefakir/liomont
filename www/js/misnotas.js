@@ -11,10 +11,8 @@ $(document).on("pagecreate", "#misnotas", function() {
 			});
 		},
 		beforeSend: function() {
-			showLoading( true );
 		},
 		complete: function() {
-			showLoading( false );
 		}
 	});
 	/* cerrar formulario */
@@ -61,10 +59,8 @@ $(document).on("pagecreate", "#misnotas", function() {
 					}
 				},
 				beforeSend: function() {
-					showLoading( true ); 
 				},
 				complete: function() {
-					showLoading( false ); 
 				}
 			});
 		}else{
@@ -93,10 +89,8 @@ $(document).on("pagecreate", "#misnotas", function() {
 					}
 				},
 				beforeSend: function() {
-					showLoading( true ); 
 				},
 				complete: function() {
-					showLoading( false ); 
 				}
 			});
 		}
@@ -121,10 +115,8 @@ $(document).on("pagecreate", "#misnotas", function() {
 					});
 				},
 				beforeSend: function() {
-					showLoading( true ); 
 				},
 				complete: function() {
-					showLoading( false ); 
 				}
 			});
 		}
