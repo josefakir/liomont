@@ -141,6 +141,9 @@ input.selectorfecha {
     color: #fff;
     margin-top: 12px;
     position: absolute;}
+#redes{position: absolute;right: 5px;top: 20px;}
+#redes li{float: left; margin: 0 5px}
+#redes li a img{width: 32px;}
 @media only screen and (min-width: 961px) and (max-width: 1200px) {
 
 }
