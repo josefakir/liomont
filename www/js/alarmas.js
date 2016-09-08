@@ -42,7 +42,7 @@ $(document).on("pagecreate", "#alarmas", function() {
     $('#mes').val( today.getMonth());
     $('#anio').val(today.getFullYear());
     var micalendario = $('#widgetcalendarioalarmas').clndr({
-    	daysOfTheWeek: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+    	daysOfTheWeek: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
     	clickEvents: {
             click: function (target) {
             	fecha = target.date._i;
@@ -87,7 +87,9 @@ $(document).on("pagecreate", "#alarmas", function() {
 				hora = hora.split(':');
 				minutos = hora[1];
 				hora = hora[0];
+				mes = mes -1;
 				fechaalarma = new Date(anio, mes, dia, hora, minutos, 0);
+				alert("Alerma agendada para el: "+fechaalarma);
 				agendarAlarma(id_alarma, fechaalarma, alarma, repetir);
 				/* pintar nuevas */
 				url = urlws + '?m=obtener_alarmas&i=' + value;
@@ -115,6 +117,40 @@ $(document).on("pagecreate", "#alarmas", function() {
 		$('#layerformulario').fadeIn('fast');
 		$('#informacionalarma').html($(this).html());
 		$('#eliminaralarma').attr('rel',$(this).attr('rel'));
+	});
+	$('#eliminartodasalarmas').click(function(e){
+		e.preventDefault();
+		var confirmar = confirm("¿Seguro de eliminar?");
+		if(confirmar){
+			var url = urlws + '?m=eliminartodasalarmas&i=' + value;
+			$.ajax({
+        		url : url,
+        		beforeSend : function(){
+					$('#loading').fadeIn('fast');
+				},
+				complete : function (){
+					$('#loading').fadeOut('fast');
+				},
+        		success : function(data){
+        			url = urlws + '?m=obtener_alarmas&i=' + value;
+					$.ajax({
+						url : url,
+						beforeSend : function(){
+
+						},
+						success : function(data){
+							var output = "";
+							$.each(data, function() {
+								output += '<li><a href="#" class="alarma" rel="'+this.id+'"><img src="img/Otros.png"> <span>'+this.titulo+' | '+this.fecha+'</span></a></li>';
+							});
+							$('#listaalarmas').html(output).listview('refresh');
+							cancelarTodasLasAlarmas();
+						}
+					});
+					$('#layerformulario').fadeOut('fast');
+        		}
+        	})
+		}
 	});
 	$('#eliminaralarma').click(function(e){
 		e.preventDefault();

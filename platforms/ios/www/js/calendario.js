@@ -2,7 +2,7 @@ $( document ).on( "pageshow", "#calendario", function() {
 	var value = window.localStorage.getItem("session");
     moment.locale('es-mx');
     var micalendario = $('#widgetcalendario').clndr({
-        daysOfTheWeek: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+        daysOfTheWeek: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'],
         clickEvents: {
             click: function (target) {
                 window.localStorage.setItem("fechacalendario", target.date._i );

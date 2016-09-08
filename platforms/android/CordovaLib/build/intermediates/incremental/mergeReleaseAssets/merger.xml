@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/Pepe/Sites/liomont/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="release"><source path="/Users/Pepe/Sites/liomont/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/pepe/Sites/liomont/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="release"><source path="/Users/pepe/Sites/liomont/platforms/android/CordovaLib/src/release/assets"/></dataSet></merger>
